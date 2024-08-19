@@ -16,7 +16,6 @@ before(function(){
 
 it("My First Test Cases from DDT",function(){
 
-    Cypress.config('defaultCommandTimeout',15000)
     const homePage=new HomePage()
     const shopPage=new ShopPage()
 
@@ -61,14 +60,17 @@ it("My First Test Cases from DDT",function(){
 
     cy.contains("Checkout").click()
     cy.get("#country").type("Pak")
+
+    //global configuration change
     Cypress.config('defaultCommandTimeout',8000)
+
     cy.get('.suggestions li a').click()
     cy.contains('Purchase').click()
     cy.get('div.alert-success').then((getText)=>{
 
-        const actualValue=getText.text()
-        cy.log(actualValue)
-        expect(actualValue).include('Thank you! Your order will be delivered in next few weeks')
+        const actualValue1=getText.text()
+        cy.log(actualValue1)
+        expect(actualValue1).include('Thank you! Your order will be delivered in next few weeks')
     })
 
 })
