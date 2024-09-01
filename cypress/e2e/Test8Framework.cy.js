@@ -2,6 +2,7 @@
 
 import HomePage from "./pageObjects/HomePage.cy";
 import ShopPage from "./pageObjects/ShopPage.cy";
+import AddToCart from "./pageObjects/AddToCart.cy";
 
 describe("My Second Test Suite",()=>{
 
@@ -18,6 +19,7 @@ it("My First Test Cases from DDT",function(){
 
     const homePage=new HomePage()
     const shopPage=new ShopPage()
+    const addToCart=new AddToCart()
 
     cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
@@ -58,19 +60,20 @@ it("My First Test Cases from DDT",function(){
 
     shopPage.checkoutButton().click()
 
-    cy.contains("Checkout").click()
-    cy.get("#country").type("Pak")
+    //cy.contains("Checkout").click()
+    addToCart.getCheckoutButton().click()
+    addToCart.getCountryTextBox().type("Pak")
 
     //global configuration change
     Cypress.config('defaultCommandTimeout',8000)
 
-    cy.get('.suggestions li a').click()
-    cy.contains('Purchase').click()
-    cy.get('div.alert-success').then((getText)=>{
+    addToCart.getSelectCountry().click()
+    addToCart.getClickPurchaseBtn().click()
+    addToCart.getSuccessMessage().then((getText)=>{
 
         const actualValue1=getText.text()
         cy.log(actualValue1)
-        expect(actualValue1).include('Thank you! Your order will be delivered in next few weeks')
+        expect(actualValue1.includes('Thank you! Your order will be delivered in next few weeks')).to.be.true
     })
 
 })
