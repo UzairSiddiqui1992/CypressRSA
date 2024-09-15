@@ -3,7 +3,7 @@ describe('Verify the DataTables Value',()=>{
 
     it("Verify the Specific tables value price",()=>{
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.visit(Cypress.env("url")+"/AutomationPractice/")
 
         cy.get('tr td:nth-child(2)').each(($el, index, $list)=>{
 
@@ -13,7 +13,7 @@ describe('Verify the DataTables Value',()=>{
             cy.get('tr td:nth-child(2)').eq(index).next().then((price)=>{
 
                 const priceValue=price.text()
-                expect(priceValue).to.equal('25')
+                expect(priceValue).to.equal('26')
             })
 
            }

@@ -3,11 +3,11 @@ describe("Verify the Sanity Test Suite",()=>{
 
     it("Verify the Mouse Hover functionlaity with jQuery show method",()=>{
 
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env("url")+'/AutomationPractice/')
         cy.get('.mouse-hover-content').invoke('show')
         cy.contains('Top').click()
         cy.url().should('include','top')
-        cy.url().should('eq','https://rahulshettyacademy.com/AutomationPractice/#top')
+        cy.url().should('eq','https://rahulshettyacademy.com/AutomationPractice/#to')
     })
 
 
@@ -37,7 +37,7 @@ describe("Verify the Sanity Test Suite",()=>{
         })
     })
 
-    it.only("Verify the mouse hover from force click on Heroku app",()=>{
+    it("Verify the mouse hover from force click on Heroku app",()=>{
         cy.visit("https://the-internet.herokuapp.com/")
         cy.contains('Hovers').click()
         cy.url().should('eq','https://the-internet.herokuapp.com/hovers')
