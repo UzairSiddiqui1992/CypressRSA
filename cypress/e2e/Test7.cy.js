@@ -8,7 +8,7 @@ describe("Verify Automate Calendar feature",()=>{
         const year="2028";
         const expectedList=[monthNumber,date,year]
         
-        cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
+        cy.visit(Cypress.env("url")+"/seleniumPractise/#/")
         cy.get('div.cart a:nth-child(2)').then((newUrl)=>{
 
             const url=newUrl.prop('href')

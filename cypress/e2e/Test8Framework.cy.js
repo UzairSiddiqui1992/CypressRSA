@@ -3,6 +3,7 @@
 import HomePage from "./pageObjects/HomePage.cy";
 import ShopPage from "./pageObjects/ShopPage.cy";
 import AddToCart from "./pageObjects/AddToCart.cy";
+//import cypress from "cypress";
 
 describe("My Second Test Suite", () => {
 
@@ -13,6 +14,10 @@ describe("My Second Test Suite", () => {
             this.data = data
         })
 
+        cy.log(Cypress.env("url"))
+        cy.log(Cypress.env("userId"))
+        cy.log(Cypress.env("password"))
+
     });
 
     it("My First Test Cases from DDT", function () {
@@ -21,7 +26,8 @@ describe("My Second Test Suite", () => {
         const shopPage = new ShopPage()
         const addToCart = new AddToCart()
 
-        cy.visit("https://rahulshettyacademy.com/angularpractice/")
+    
+        cy.visit(Cypress.env('url')+"/angularpractice/")
 
 
         //Name
