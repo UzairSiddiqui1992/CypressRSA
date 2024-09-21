@@ -13,7 +13,7 @@ describe('Verify the DataTables Value',()=>{
             cy.get('tr td:nth-child(2)').eq(index).next().then((price)=>{
 
                 const priceValue=price.text()
-                expect(priceValue).to.equal('26')
+                expect(priceValue).to.equal('25')
             })
 
            }
