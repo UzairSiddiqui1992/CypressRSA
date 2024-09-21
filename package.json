@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "runAlltest": "npx cypress run"
+    "runAlltest": "npx cypress run",
+    "headedTest":"npx cypress run --headed",
+    "runTestDashboard":"npx cypress run --record --key c64831b0-cd68-4a69-899b-f4c6edaf1827",
+    "chromeTest":"npx cypress run --headed --browser chrome --spec 'cypress/e2e/Test4.cy.js'",
+    "smokeTest":"npx cypress run --headed --spec \"cypress/e2e/Test8Framework.cy.js\""
   },
   "author": "",
   "license": "ISC",
